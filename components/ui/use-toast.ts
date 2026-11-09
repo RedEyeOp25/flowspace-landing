@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import type { ToastActionElement, ToastProps } from "@radix-ui/react-toast"
+import type { ToastProps } from "@radix-ui/react-toast"
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
@@ -11,7 +11,9 @@ type ToasterToast = ToastProps & {
   id: string
   title?: React.ReactNode
   description?: React.ReactNode
-  action?: ToastActionElement
+  action?: React.ReactNode
+  onDismiss?: () => void
+  onOpenChange?: (open: boolean) => void
 }
 
 const listeners: Array<(state: State) => void> = []
